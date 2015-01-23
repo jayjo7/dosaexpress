@@ -11,7 +11,7 @@
              <!-- THE MENU ITEM -->
 
              {{#each breakFast}}
-              <div class="col-lg-6">
+              <div class="col-lg-6" id="{{UniqueId}}">
                 	<div class="the-menu-item {{soldOut Availability}}">
                   		<div class="image-wrap"> <img src="temp/images/themenu/img-2.jpg" alt=""> </div>
                   		<div class="the-menu-body">
@@ -19,19 +19,32 @@
                     		<p>{{Description}}</p>
                   		</div>
 
-                  		{{#if isAvailable Availability}}	
+                  		{{#if isInCart UniqueId}}
 
-                  			<div class="prices"> 
-                  				<button type="button" class="fa fa-shopping-cart  btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Add to Order">
-                  				<span class="price xsm ">{{ currency Charge}} </span>  
-                  				</button>
-                  			</div>
-                  		{{else}}
+                  				<div class="prices"> 
+                  					<button type="button" class="fa fa-check btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Added">
+                  					<span class="price xsm ">{{ currency Charge}} </span>  
+                  					</button>
+                  				</div>
 
-                  		        <div class="prices"> <span class="price xsm">{{ currency Charge}}</span> </div>
-                  				 <div class="highlight">SOLD OUT</div>	
+                  		{{else}}	
+
+                  			{{#if isAvailable Availability}}	
+
+                  				<div class="prices"> 
+                  					<button type="button" class="fa fa-shopping-cart  btn btn-default addcart" data-toggle="tooltip" data-placement="bottom" title="Add to Order">
+                  					<span class="price xsm ">{{ currency Charge}} </span>  
+                  					</button>
+                  				</div>
+                  			{{else}}
+
+                  		        	<div class="prices"> <span class="price xsm">{{ currency Charge}}</span> </div>
+                  				 	<div class="highlight">SOLD OUT</div>	
                   		
-                  		{{/if}}	
+                  			{{/if}}	
+
+
+                  		{{/if}}
 
 
                 	</div>

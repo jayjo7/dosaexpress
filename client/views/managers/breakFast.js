@@ -27,4 +27,26 @@ Template.breakFast.helpers({
     	else
     		return '';
     },
+
+    isInCart:function(product)
+    {
+    	var sessid = Meteor.default_connection._lastSessionId;
+    	return Meteor.call('isInCart', product, sessid);
+    }
 });
+
+Template.breakFast.events({
+	'click .addcart': function(evt,tmpl)
+	{
+		var currentTarget = evt.currentTarget
+		console.log("tmpl" + tmpl);
+		console.log("this.UniqueId " + this.UniqueId );
+		var product = this.UniqueId ;
+		var sessid = Meteor.default_connection._lastSessionId;
+		console.log("product = " + product );
+		console.log("sessid = " + sessid );
+		Meteor.call('addToCart', product, sessid);
+		evt.currentTarget.className = " fa fa-check btn btn-success";
+		evt.currentTarget.title='Added'
+	}
+})
