@@ -45,7 +45,7 @@ Template.lunch.events({
         var sessid = Meteor.default_connection._lastSessionId;
         console.log("product = " + product );
         console.log("sessid = " + sessid );
-        Meteor.call('addToCart', 1 ,product, sessid);
+        Meteor.call('addToCart', 1 ,product, sessid, this.Name, this.Category, this.Charge);
         evt.currentTarget.className = " fa fa-check btn btn-success";
         evt.currentTarget.title='Added'
     }

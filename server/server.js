@@ -1,8 +1,8 @@
 Meteor.methods({
 
-	addToCart:function(qty, product, session){
+	addToCart:function(qty, product, session, name, category, charge){
 
-		CartItems.update({product:product, session:session},{qty:qty, product:product, session:session},{upsert:true});
+		CartItems.update({product:product, session:session},{qty:qty, product:product, session:session, Name:name, Category:category, Charge:charge},{upsert:true});
 		console.log("Added to CartItems: session = " + session + " product = " + product);
 
 	},
