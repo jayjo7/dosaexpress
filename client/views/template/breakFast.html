@@ -19,16 +19,6 @@
                     		<p>{{Description}}</p>
                   		</div>
 
-                  		{{#if isInCart UniqueId}}
-
-                  				<div class="prices"> 
-                  					<button type="button" class="fa fa-check btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Added">
-                  					<span class="price xsm ">{{ currency Charge}} </span>  
-                  					</button>
-                  				</div>
-
-                  		{{else}}	
-
                   			{{#if isAvailable Availability}}	
 
                   				<div class="prices"> 
@@ -42,10 +32,6 @@
                   				 	<div class="highlight">SOLD OUT</div>	
                   		
                   			{{/if}}	
-
-
-                  		{{/if}}
-
 
                 	</div>
               </div>
